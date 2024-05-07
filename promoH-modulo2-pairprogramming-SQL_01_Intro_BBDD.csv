@@ -1,0 +1,54 @@
+Link a la lección,,,,,
+,,,,,
+Ejercicio pair: hacer las modificación necesarias a la siguiente tabla para que cumpla con las 3 primeras FN,,,,,
+,,,,,
+id_alumna,nombre,dirección,id_asignatura,asignatura,nota
+1,Cristina Marín,"Cuenca, España",101,Bases de datos,8
+1,Cristina Marín,"Cuenca, España",102,Extracción,9
+1,Cristina Marín,"Cuenca, España",103,Limpieza,8
+2,Marta López,"Toledo, España",101,Bases de datos,7
+2,Marta López,"Toledo, España",103,Limpieza,9
+3,Rocío Pérez,"Nantes, Francia",101,Bases de datos,10
+3,Rocío Pérez,"Nantes, Francia",102,Extracción,7
+4,Elena Rodriguez,"Monterrey, México",101,Bases de datos,10
+4,Elena Rodriguez,"Monterrey, México",102,Extracción,9
+4,Elena Rodriguez,"Monterrey, México",103,Limpieza,7
+,,,,,
+1FN no hay PK,,,,,
+1FN no todos son valores atómicos (nombre y artículo),,,,,
+2FN los campos no clave no depende den PK,,,,,
+,,,,,
+1. Tabla asignaturas,,,,,
+id_asignatura (PK),asignatura,,,,
+101,Bases de datos,,,,
+102,Extracción,,,,
+103,Limpieza,,,,
+,,,,,
+2. Tabla países,,,,,
+id_ubicación (PK),ciudad,país,,,
+1,Cuenca,España,,,
+2,Toledo,España,,,
+3,Nantes,Francia,,,
+4,Monterrey,México,,,
+,,,,,
+3. Tabla alumnas,,,,,
+id_alumna (PK),nombre,apellido,id_ubicación (FK),,
+1,Cristina,Marín,1,,
+2,Marta,López,2,,
+3,Rocío,Pérez,3,,
+4,Elena,Rodríguez,4,,
+,,,,,
+,,,,,
+4. Tabla notas (relacionada con las anteriores),,,,,
+*La columna PK compuesta no hace falta añadirla; SQL lo hace automáticamente con la concatenación de las columnas id_alumna+id_asignatura (pero la ponemos para visualizarlo nosotras mejor),,,,,
+PK compuesta,id_alumna (FK) (PK),id_asignatura (FK) (PK),nota,,
+1/101,1,101,8,,
+1/102,1,102,9,,
+1/103,1,103,8,,
+2/101,2,101,7,,
+2/103,2,103,9,,
+3/101,3,101,10,,
+3/102,3,102,7,,
+4/101,4,101,10,,
+4/102,4,102,9,,
+4/103,4,103,7,,
